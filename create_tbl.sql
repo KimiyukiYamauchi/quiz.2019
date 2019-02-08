@@ -1,32 +1,29 @@
---
--- Table structure for table `quiz`
---
-
-DROP TABLE IF EXISTS `quiz`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `quiz` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `question` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `option1` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `option2` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `option3` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `option4` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `answer` text CHARACTER SET utf8 NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `quiz4`;
+CREATE TABLE quiz4 (
+    id int AUTO_INCREMENT primary key not null,
+    question_type VARCHAR(20) NOT NULL,
+    question_difficulty VARCHAR(20) NOT NULL,
+    question TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    option1 VARCHAR (255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    option2 VARCHAR (255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    option3 VARCHAR (255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    option4 VARCHAR (255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    option5 VARCHAR (255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    option6 VARCHAR (255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    answer text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+    answer_length VARCHAR(20) NOT NULL,
+    checkbox_length int(3) NOT NULL,
+    checkbox_options int(3) NOT NULL
+) ENGINE = MyISAM;
 
 
 DROP TABLE IF EXISTS `quiz_result`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `quiz_result` (
-  `id` int(11) NOT NULL,
-  `right_answer` int(11) NOT NULL,
-  `question` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `user_answer` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `play_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE quiz_result (
+    user_id VARCHAR(255) NOT NULL, 
+    id INT NOT NULL, 
+    right_answer INT(3) NOT NULL, 
+    question VARCHAR (255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, 
+    user_answer VARCHAR (255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, 
+    play_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE = MyISAM;
 
