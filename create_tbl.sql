@@ -27,3 +27,11 @@ CREATE TABLE quiz_result (
     play_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE = MyISAM;
 
+DROP TABLE IF EXISTS `game_summary`;
+CREATE TABLE game_summary (
+    user_name VARCHAR(255) NOT NULL,quiz_name VARCHAR(255) NOT NULL, 
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, 
+    total_answers INT NOT NULL, 
+    right_answers INT NOT NULL, 
+    reg_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
