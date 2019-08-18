@@ -1,6 +1,8 @@
 DROP TABLE IF EXISTS `quiz4`;
 CREATE TABLE quiz4 (
     id int AUTO_INCREMENT primary key not null,
+    quizId int NOT NULL,
+    validity VARCHAR(20) NOT NULL,
     question_type VARCHAR(20) NOT NULL,
     question_difficulty VARCHAR(20) NOT NULL,
     question TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -16,11 +18,11 @@ CREATE TABLE quiz4 (
     checkbox_options int(3) NOT NULL
 ) ENGINE = MyISAM;
 
-
 DROP TABLE IF EXISTS `quiz_result`;
 CREATE TABLE quiz_result (
     user_id VARCHAR(255) NOT NULL, 
     id INT NOT NULL, 
+    quizId INT(5) NOT NULL, 
     right_answer INT(3) NOT NULL, 
     question VARCHAR (255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, 
     user_answer VARCHAR (255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, 
@@ -29,8 +31,11 @@ CREATE TABLE quiz_result (
 
 DROP TABLE IF EXISTS `game_summary`;
 CREATE TABLE game_summary (
-    user_name VARCHAR(255) NOT NULL,quiz_name VARCHAR(255) NOT NULL, 
+    user_name VARCHAR(255) NOT NULL,
+    quiz_name VARCHAR(255) NOT NULL, 
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, 
+    chapters VARCHAR(100) NOT NULL,
+    gameTime VARCHAR(15) NOT NULL,
     total_answers INT NOT NULL, 
     right_answers INT NOT NULL, 
     reg_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
