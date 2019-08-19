@@ -19,7 +19,6 @@ if (isset($_POST['login'])) {
     }
     if (!empty($errors) == 0 ) {
         $password = hash('sha512', $password);
-        echo $password;
         $query_passwd = "SELECT COUNT(*) FROM users WHERE username=? and password=?";
         $result = $db -> downloadOneTitle($query_passwd, array($username, $password), 'ss');
         if ($result == 1) {
