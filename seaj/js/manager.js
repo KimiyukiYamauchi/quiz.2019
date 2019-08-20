@@ -104,7 +104,7 @@ const loadQuestion = (type) => {
       }
     }
   };
-  xhttp.open("POST", "http://localhost/else/checkbox/classes/quizClass.php", true);
+  xhttp.open("POST", "http://kimiyuki.sakura.ne.jp/seaj/classes/quizClass.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send('quizContent=' + userinput);
 };

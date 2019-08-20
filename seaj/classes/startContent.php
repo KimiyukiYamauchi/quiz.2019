@@ -22,7 +22,7 @@ class startContent extends dbManagerClass {
     }
 
     public function statusList() {
-        $query = "SELECT quizId, count(*), validity from quiz4 WHERE quizId <= 16 GROUP BY quizId ORDER BY quizId";
+        $query = "SELECT quizId, count(*), validity from quiz4 WHERE quizId <= 16 GROUP BY quizId, validity ORDER BY quizId";
         $temp_list = self::downloadParams($query, '', '', 3);
         //if some quizId is missing in middle of db table
         foreach ($temp_list as $key => $value) {
