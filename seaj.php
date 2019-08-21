@@ -34,21 +34,21 @@ $file->setFlags(SplFileObject::READ_CSV);
 delete_all();
 foreach ($file as $line) {
     //var_dump($line);
-    $quizId = $line[0];
-    $validity= $line[1];
-    $question_type = $line[2];
-    $question_difficulty = $line[3];
-    $question = $line[4];
-    $option1 = $line[5];
-    $option2 = $line[6];
-    $option3 = $line[7];
-    $option4 = $line[8];
-    $option5 = $line[9];
-    $option6 = $line[10];
-    $answer= hash('sha256',json_encode($line[11]));
-    $answer_length = $line[12];
-    $checkbox_length = $line[13];
-    $checkbox_options = $line[14];
+    $quizId = $line[1];
+    $validity= $line[2];
+    $question_type = $line[3];
+    $question_difficulty = $line[4];
+    $question = $line[5];
+    $option1 = $line[6];
+    $option2 = $line[7];
+    $option3 = $line[8];
+    $option4 = $line[9];
+    $option5 = $line[10];
+    $option6 = $line[11];
+    $answer= hash('sha256',json_encode($line[12]));
+    $answer_length = $line[13];
+    $checkbox_length = $line[14];
+    $checkbox_options = $line[15];
     $query = "INSERT INTO quiz4 VALUES (" .
         "'', '$quizId', '$validity', " .
         "'$question_type', '$question_difficulty', '$question', " .
