@@ -15,7 +15,7 @@ function row_creator ($x) {
     }
     mysqli_close($conn);
 }
-$file = new SplFileObject('input.csv');
+$file = new SplFileObject('quiz.csv');
 $file->setFlags(SplFileObject::READ_CSV);
 foreach ($file as $line) {
     //var_dump($line);
