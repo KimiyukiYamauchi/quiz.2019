@@ -39,6 +39,8 @@ class quizClass extends dbManagerClass {
     public function answerCheck($id, $user_answer) {
         $query = "SELECT question, question_type, answer, quizId FROM quiz4 WHERE id=?";
         $result = self::downloadParams1Row($query, $id, 'i', 4);
+        $query = "SELECT option1, option2, option3, option4 FROM quiz4 WHERE id=?";
+        $options = self::downloadParams1Row($query, $id, 'i', 4);
         if ($result[1] == 'checkbox') {
             sort($user_answer);
             if (count($user_answer) == 3) {
@@ -61,6 +63,10 @@ class quizClass extends dbManagerClass {
 
         if ($result[1] === 'select' || $result[1] === 'select-img') {
             $user_answer_hashed = hash('sha256', json_encode(htmlspecialchars($user_answer)));
+            $result[0] .= '<ul><li>' . $options[0] . '</li><li>'
+                            . $options[1] . '</li><li>'
+                            . $options[2] . '</li><li>'
+                            . $options[3] . '</li></ul>';
         }
 
         if ($result[2] != $user_answer_hashed) {

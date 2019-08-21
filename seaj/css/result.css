@@ -67,6 +67,7 @@ h1 {
 
 .question-col, .answer-col {
     width: 40%;
+    text-align: left;
 }
 
 
