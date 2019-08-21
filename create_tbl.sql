@@ -24,7 +24,7 @@ CREATE TABLE quiz_result (
     id INT NOT NULL, 
     quizId INT(5) NOT NULL, 
     right_answer INT(3) NOT NULL, 
-    question VARCHAR (255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, 
+    question VARCHAR (2000) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, 
     user_answer VARCHAR (255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, 
     play_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE = MyISAM;
